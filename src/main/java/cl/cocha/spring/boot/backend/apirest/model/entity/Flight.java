@@ -17,8 +17,9 @@ public class Flight implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long suplierId;
+	private Long fligthId;
 
+	private String suplierId;
 	private String title;
 	private String description;
 	private String image;
@@ -32,11 +33,19 @@ public class Flight implements Serializable {
 	private Integer originId;
 	private Integer locationId;
 
-	public Long getSuplierId() {
+	public Long getFligthId() {
+		return fligthId;
+	}
+
+	public void setFligthId(Long fligthId) {
+		this.fligthId = fligthId;
+	}
+
+	public String getSuplierId() {
 		return suplierId;
 	}
 
-	public void setSuplierId(Long suplierId) {
+	public void setSuplierId(String suplierId) {
 		this.suplierId = suplierId;
 	}
 
@@ -104,5 +113,9 @@ public class Flight implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+
+
+
+
 
 }

@@ -1,4 +1,4 @@
-package cl.cocha.spring.boot.backend.apirest.model.service;
+package cl.cocha.spring.boot.backend.apirest.service;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import cl.cocha.spring.boot.backend.apirest.model.dao.IFlightDao;
+import cl.cocha.spring.boot.backend.apirest.dao.IFlightDao;
 import cl.cocha.spring.boot.backend.apirest.model.entity.Flight;
 
 @Service

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import cl.cocha.spring.boot.backend.apirest.model.entity.Flight;
-import cl.cocha.spring.boot.backend.apirest.model.service.IFlightService;
+import cl.cocha.spring.boot.backend.apirest.service.IFlightService;
 
 @RestController
 @RequestMapping("/api")

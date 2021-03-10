@@ -1,4 +1,4 @@
-package cl.cocha.spring.boot.backend.apirest.model.service;
+package cl.cocha.spring.boot.backend.apirest.service;
 
 import java.util.List;
 
