@@ -4,9 +4,12 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -22,18 +25,17 @@ public class OutBound {
 
     @Temporal(TemporalType.DATE)
     private Date departure;
-    
+
     @Temporal(TemporalType.DATE)
     private Date arrival;
-    
+
     @Temporal(TemporalType.TIME)
     @Column(name = "total_duration")
     private Date totalDuration;
 
-    @Column(name = "flight_detail_id")
-    private Long flightDetailId;
+    //RELACIONES DE ENTIDADES
 
-
+ 
 
 
 
@@ -72,14 +74,6 @@ public class OutBound {
         this.totalDuration = totalDuration;
     }
 
-    public Long getFlightDetailId() {
-        return flightDetailId;
-    }
 
-    public void setFlightDetailId(Long flightDetailId) {
-        this.flightDetailId = flightDetailId;
-    }
-
-    
 
 }

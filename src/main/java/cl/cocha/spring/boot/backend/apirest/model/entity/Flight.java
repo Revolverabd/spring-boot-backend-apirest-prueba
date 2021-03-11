@@ -2,15 +2,23 @@ package cl.cocha.spring.boot.backend.apirest.model.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
 
 @Entity
 @Table(name = "flights")
@@ -20,10 +28,10 @@ public class Flight implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "flight_id")
 	private Long fligthId;
-	
+
 	@Column(name = "suplier_id")
 	private String suplierId;
-	
+
 	private String title;
 
 	private String description;
@@ -38,8 +46,15 @@ public class Flight implements Serializable {
 	@Column(name = "end_date")
 	private Date endDate;
 
+	// RELACIONES DE ENTIDADES
+/**
+ * 
+ @OneToMany(mappedBy = "flight", cascade = CascadeType.ALL, orphanRemoval = true)
+ private List<Deeplink> deeplink;
+ */
 
-	
+	// GETTER AND SETTER
+
 	public Long getFligthId() {
 		return fligthId;
 	}
@@ -96,14 +111,26 @@ public class Flight implements Serializable {
 		this.endDate = endDate;
 	}
 
+	/**
+	 * 
+	 */
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
+
+	// public List<Deeplink> getDeeplink() {
+	// 	return deeplink;
+	// }
+
+	// public void setDeeplink(List<Deeplink> deeplink) {
+	// 	this.deeplink = deeplink;
+	// }
+
+
+
+
 
 }

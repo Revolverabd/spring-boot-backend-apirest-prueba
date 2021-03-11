@@ -5,35 +5,30 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "flights_details")
 public class FlightDetail {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "flight_detail_id")
-    private Long flightDetail_id;
+    private Long flightDetailId;
 
     private Boolean national;
+
     private String validatorAirline;
 
-    @Column(name = "flight_id")
-    private Long flightId;
+ 
 
-
-
-
-
-
-    
-    public Long getFlightDetail_id() {
-        return flightDetail_id;
+    public Long getFlightDetailId() {
+        return flightDetailId;
     }
 
-    public void setFlightDetail_id(Long flightDetail_id) {
-        this.flightDetail_id = flightDetail_id;
+    public void setFlightDetailId(Long flightDetailId) {
+        this.flightDetailId = flightDetailId;
     }
 
     public Boolean getNational() {
@@ -52,13 +47,6 @@ public class FlightDetail {
         this.validatorAirline = validatorAirline;
     }
 
-    public Long getFlightId() {
-        return flightId;
-    }
 
-    public void setFlightId(Long flightId) {
-        this.flightId = flightId;
-    }
 
-    
 }

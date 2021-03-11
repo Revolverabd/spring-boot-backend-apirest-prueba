@@ -13,20 +13,28 @@ public class OutboundOriginDestination {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="out_bound_origin_destination_id")
+    @Column(name = "out_bound_origin_destination_id")
     private long outBoundOriginDestinationId;
 
-    @Column(name="out_bound_id")
-    private Long outBoundId;          
-    
-    @Column(name="origin_destination_id")
+    @Column(name = "out_bound_id")
+    private Long outBoundId;
+
+    @Column(name = "origin_destination_id")
     private Long originDestinationId;
 
     private String type;
 
+    // RELACIONES DE ENTIDADES
 
 
-    
+
+
+
+
+
+
+
+
 
     public long getOutBoundOriginDestinationId() {
         return outBoundOriginDestinationId;
@@ -58,6 +66,6 @@ public class OutboundOriginDestination {
 
     public void setType(String type) {
         this.type = type;
-    }                
-    
+    }
+
 }

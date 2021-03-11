@@ -24,17 +24,17 @@ public class FlightRestController {
     @Autowired
     private IFlightService flightService;
 
-    @GetMapping("/flights")
+    @GetMapping("/flight")
     public List<Flight> index() {
         return flightService.getdAllFlight();
     }
 
-    @GetMapping("/flights/{id}")
+    @GetMapping("/flight/{id}")
     public Flight showFlightByid(@PathVariable Long id) {
         return flightService.getFlightById(id);
     }
 
-    @PostMapping("/flights")
+    @PostMapping("/flight")
     @ResponseStatus(value = HttpStatus.CREATED)
     public Flight createFlight(@RequestBody Flight flight) {
         return flightService.saveFlight(flight);

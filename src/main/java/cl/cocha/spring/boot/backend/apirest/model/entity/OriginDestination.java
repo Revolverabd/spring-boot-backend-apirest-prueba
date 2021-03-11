@@ -1,5 +1,6 @@
 package cl.cocha.spring.boot.backend.apirest.model.entity;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,31 +11,31 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "origins_destinations")
 public class OriginDestination {
-    
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="origin_destination_id")
+    @Column(name = "origin_destination_id")
     private Long originDestinationId;
 
-    @Column(name="city_name")
-    private String cityName;            
-    
-    @Column(name="city_code")
-    private String cityCode;            
-    
-    @Column(name="country_name")
-    private String countryName;         
-    
-    @Column(name="contry_code")
-    private String contryCode;          
-    
-    @Column(name="airport_name")
-    private String airportName;         
-    
-    @Column(name="airport_code")
-    private String airportCode;
+    @Column(name = "city_name")
+    private String cityName;
 
+    @Column(name = "city_code")
+    private String cityCode;
+
+    @Column(name = "country_name")
+    private String countryName;
+
+    @Column(name = "contry_code")
+    private String contryCode;
+
+    @Column(name = "airport_name")
+    private String airportName;
+
+    @Column(name = "airport_code")
+    private String airportCode;
+    
+    // RELACIONES DE ENTIDADES
 
 
 
@@ -92,9 +93,7 @@ public class OriginDestination {
 
     public void setAirportCode(String airportCode) {
         this.airportCode = airportCode;
-    }         
+    }
 
-
-    
 
 }

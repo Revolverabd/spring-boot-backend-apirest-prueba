@@ -1,11 +1,18 @@
 package cl.cocha.spring.boot.backend.apirest.model.entity;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,20 +24,20 @@ public class Deeplink {
     @Column(name = "deeplink_id")
     private Long deeplinkId;
 
-    // private String flightId;
     private String backoffice;
 
     @Column(name = "public")
     private String publicc;
 
-    @Column(name = "flight_id")
-    private Long flightId;
+    // RELACIONES DE ENTIDADES
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "flight_id")
+    private List<Flight> flight;
 
-/*
-  * @ManyToOne
-  * @JoinColumn(name = "flight_Id") 
-    Flight flight;
-*/    
+
+    // GETTER AND SETTER
+
+ 
 
     public Long getDeeplinkId() {
         return deeplinkId;
@@ -38,14 +45,6 @@ public class Deeplink {
 
     public void setDeeplinkId(Long deeplinkId) {
         this.deeplinkId = deeplinkId;
-    }
-
-    public Long getFlightId() {
-        return flightId;
-    }
-
-    public void setFlightId(Long flightId) {
-        this.flightId = flightId;
     }
 
     public String getBackoffice() {
@@ -63,5 +62,17 @@ public class Deeplink {
     public void setPublicc(String publicc) {
         this.publicc = publicc;
     }
+
+    public List<Flight> getFlight() {
+        return flight;
+    }
+
+    public void setFlight(List<Flight> flight) {
+        this.flight = flight;
+    }
+
+   
+
+
 
 }
