@@ -3,6 +3,7 @@ package cl.cocha.spring.boot.backend.apirest.model.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,27 +13,33 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "flight")
+@Table(name = "flights")
 public class Flight implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "flight_id")
 	private Long fligthId;
-
+	
+	@Column(name = "suplier_id")
 	private String suplierId;
+	
 	private String title;
+
 	private String description;
+
 	private String image;
 
 	@Temporal(TemporalType.DATE)
+	@Column(name = "start_date")
 	private Date startDate;
 
 	@Temporal(TemporalType.DATE)
+	@Column(name = "end_date")
 	private Date endDate;
 
-	private Integer originId;
-	private Integer locationId;
 
+	
 	public Long getFligthId() {
 		return fligthId;
 	}
@@ -89,21 +96,6 @@ public class Flight implements Serializable {
 		this.endDate = endDate;
 	}
 
-	public Integer getOriginId() {
-		return originId;
-	}
-
-	public void setOriginId(Integer originId) {
-		this.originId = originId;
-	}
-
-	public Integer getLocationId() {
-		return locationId;
-	}
-
-	public void setLocationId(Integer locationId) {
-		this.locationId = locationId;
-	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
@@ -113,9 +105,5 @@ public class Flight implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
-
-
-
 
 }

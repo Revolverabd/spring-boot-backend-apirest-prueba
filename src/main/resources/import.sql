@@ -1,1 +1,0 @@
-INSERT INTO `flight` (`suplier_id`, `description`, `end_date`, `image`, `location_id`, `origin_id`, `start_date`, `title`) VALUES ('MIASCLARAMADEUS-MIAEZE0720AR1305RRHS5NEB-EZESCL0721AR1284RRHS5NEB,1|0|0', 'Vuelo ida de MIAMI a SANTIAGO', '2021-07-21', NULL, '1', '1', '2021-07-20', 'Vuelo ida de MIAMI a SANTIAGO');
