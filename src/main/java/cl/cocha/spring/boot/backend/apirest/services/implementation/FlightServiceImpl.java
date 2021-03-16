@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 import cl.cocha.spring.boot.backend.apirest.helpers.ModelHelper;
 import cl.cocha.spring.boot.backend.apirest.models.dto.FlightDTO;
+import cl.cocha.spring.boot.backend.apirest.models.dto.FlightRequest;
 import cl.cocha.spring.boot.backend.apirest.models.entities.Flight;
 import cl.cocha.spring.boot.backend.apirest.repository.IFlightRepository;
 import cl.cocha.spring.boot.backend.apirest.services.interfaces.IFlightService;
@@ -21,26 +22,26 @@ public class FlightServiceImpl implements IFlightService {
 
     @Override
     public List<FlightDTO> getdAllFlight() {
-       
+
         List<FlightDTO> flightDtoList = new ArrayList<>();
         Iterable<Flight> flights = this.iFlightRepository.findAll();
 
-        for (Flight flight : flights){
+        for (Flight flight : flights) {
 
             FlightDTO flightDTO = ModelHelper.modelMapper().map(flight, FlightDTO.class);
-            
+
             flightDtoList.add(flightDTO);
         }
-        
+
         return flightDtoList;
     }
 
     @Override
     public FlightDTO getBySuplierId(String suplierId) {
-        
+
         Optional<Flight> flight = this.iFlightRepository.findBySuplierId(suplierId);
 
-        if(!flight.isPresent()){
+        if (!flight.isPresent()) {
             return null;
         }
 
@@ -48,12 +49,15 @@ public class FlightServiceImpl implements IFlightService {
     }
 
     @Override
-    public void save(FlightDTO flight) {
+    public void saveFlight(FlightRequest flightData) {
+
+        Flight flight = ModelHelper.modelMapper().map(flightData, Flight.class);
+        this.iFlightRepository.saveAndFlush(flight);
 
     }
 
     @Override
-    public void saveAllFlight(List<FlightDTO> flights) {
+    public void saveAllFlight(List<FlightRequest> flights) {
 
     }
 
@@ -62,8 +66,8 @@ public class FlightServiceImpl implements IFlightService {
 
     }
 
-    private FlightDTO convertToFlightDTO(final Flight flight) {
-        return ModelHelper.modelMapper().map(flight, FlightDTO.class);
-    }
+    // private FlightDTO convertToFlightDTO(final Flight flight) {
+    // return ModelHelper.modelMapper().map(flight, FlightDTO.class);
+    // }
 
 }

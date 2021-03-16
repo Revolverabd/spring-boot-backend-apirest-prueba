@@ -15,6 +15,4 @@ public interface IFlightRepository extends JpaRepository<Flight, Long> {
     @Transactional(readOnly = true)
     public Optional<Flight> findBySuplierId(String suplierId);
 
- 
-
 }
