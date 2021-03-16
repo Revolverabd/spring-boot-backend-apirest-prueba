@@ -56,14 +56,16 @@ public class FlightServiceImpl implements IFlightService {
 
     }
 
+    /**
+     * 
+     ** @Override public void saveAllFlight(List<FlightRequest> flights) {
+     * 
+     *           }
+     */
+
     @Override
-    public void saveAllFlight(List<FlightRequest> flights) {
-
-    }
-
-    @Override
-    public void deleteFlightById(int flightId) {
-
+    public void deleteFlightById(Long flightId) {
+        this.iFlightRepository.deleteById(flightId);
     }
 
     // private FlightDTO convertToFlightDTO(final Flight flight) {

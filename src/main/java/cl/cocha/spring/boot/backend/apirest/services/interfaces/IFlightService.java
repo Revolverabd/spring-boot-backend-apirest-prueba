@@ -16,8 +16,6 @@ public interface IFlightService {
 
 	public void saveFlight(FlightRequest flight);
 
-	public void saveAllFlight(List<FlightRequest> flights);
-
-	public void deleteFlightById(int flightId);
+	public void deleteFlightById(Long flightId);
 
 }

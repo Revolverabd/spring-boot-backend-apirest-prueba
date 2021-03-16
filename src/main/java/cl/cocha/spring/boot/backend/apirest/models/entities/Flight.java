@@ -21,38 +21,34 @@ import javax.persistence.TemporalType;
 public class Flight implements Serializable {
 
 
-
-	/**
-	 *
-	 */
-	private static final long serialVersionUID = -5036447751795671544L;
-
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "flight_id")
 	private Long fligthId;
-
+	
 	@Column(name = "suplier_id")
 	private String suplierId;
-
+	
 	private String title;
-
+	
 	private String description;
-
+	
 	private String image;
-
+	
 	@Temporal(TemporalType.DATE)
 	@Column(name = "start_date")
 	private Date startDate;
-
+	
 	@Temporal(TemporalType.DATE)
 	@Column(name = "end_date")
 	private Date endDate;
-
-
-
-/**
- 
+	
+	
+	private static final long serialVersionUID = -5036447751795671544L;
+	
+	/**
+	 
 	 @OneToOne(mappedBy = "flight", cascade = CascadeType.ALL)
 	 private Deeplink deeplink;
  * 
