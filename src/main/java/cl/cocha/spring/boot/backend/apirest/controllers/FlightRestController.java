@@ -46,6 +46,7 @@ public class FlightRestController {
 
     @PutMapping(value = "/flight/update/{flightId}")
     public ResponseEntity<Object> updateFlight(@RequestBody FlightRequest request, @PathVariable Long flightId){
+        this.iFlightService.updateFlight(request,flightId);
         return ResponseEntity.ok(Boolean.TRUE);
     }
 

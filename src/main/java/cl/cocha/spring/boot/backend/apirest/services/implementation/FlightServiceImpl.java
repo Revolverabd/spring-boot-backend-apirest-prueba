@@ -56,17 +56,27 @@ public class FlightServiceImpl implements IFlightService {
 
     }
 
-    /**
-     * 
-     ** @Override public void saveAllFlight(List<FlightRequest> flights) {
-     * 
-     *           }
-     */
+    @Override
+    public void updateFlight(FlightRequest flightData, Long flightId) {
+     
+        Optional<Flight> flightDB = this.iFlightRepository.findById(flightId);
 
+        Flight flight = flightDB.get();
+        flight.setTitle(flightData.getTitle());
+        flight.setDescription(flightData.getDescription());
+        flight.setImage(flightData.getImage());
+        flight.setStartDate(flightData.getStartDate());
+        flight.setEndDate(flightData.getEndDate());
+
+        this.iFlightRepository.saveAndFlush(flight);
+
+    }
+    
     @Override
     public void deleteFlightById(Long flightId) {
         this.iFlightRepository.deleteById(flightId);
     }
+
 
     // private FlightDTO convertToFlightDTO(final Flight flight) {
     // return ModelHelper.modelMapper().map(flight, FlightDTO.class);
