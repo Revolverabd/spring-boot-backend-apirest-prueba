@@ -62,6 +62,8 @@ public class FlightServiceImpl implements IFlightService {
         Optional<Flight> flightDB = this.iFlightRepository.findById(flightId);
 
         Flight flight = flightDB.get();
+
+        flight.setSuplierId(flightData.getSuplierId());
         flight.setTitle(flightData.getTitle());
         flight.setDescription(flightData.getDescription());
         flight.setImage(flightData.getImage());
@@ -76,10 +78,5 @@ public class FlightServiceImpl implements IFlightService {
     public void deleteFlightById(Long flightId) {
         this.iFlightRepository.deleteById(flightId);
     }
-
-
-    // private FlightDTO convertToFlightDTO(final Flight flight) {
-    // return ModelHelper.modelMapper().map(flight, FlightDTO.class);
-    // }
 
 }
